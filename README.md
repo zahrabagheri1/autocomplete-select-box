@@ -19,7 +19,7 @@ Technologies Used:
 ### Cloning the repository
 
 ```shell
-git clone https://github.com/siavashsk/spotify-clone.git
+git clone https://github.com/zahrabagheri1/autocomplete-select-box.git
 ```
 
 ### Install packages
