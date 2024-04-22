@@ -1,8 +1,35 @@
-# React + Vite
+# A selectbox component
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This component is a selectbox that allows you to search for options by typing; In addition, in this program, the options of this box are received through API.
 
-Currently, two official plugins are available:
+The overall picture:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Technologies Used:
+
+- React - version 18.2.0
+- React-dom - version 18.2.0
+- SASS - version 1.75.0
+- React Icons - version 5.0.1
+
+
+### Prerequisites
+
+**Node version 20.4.0**
+
+### Cloning the repository
+
+```shell
+git clone https://github.com/siavashsk/spotify-clone.git
+```
+
+### Install packages
+
+```shell
+npm i
+```
+
+### Start the app
+
+```shell
+npm run dev
+```
