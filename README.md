@@ -1,6 +1,6 @@
 # A selectbox component
 
-This component is a selectbox that allows you to search for options by typing; In addition, in this program, the options of this box are received through API.
+This component is a selectbox that haves autocomplete and allows you to search for options by typing; In addition, in this program, the options of this box are received through API.
 
 The overall picture:
 
