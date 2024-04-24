@@ -5,6 +5,8 @@ import './Autocomplete.scss';
 function Index(props) {
     const [click, setClick] = useState(false);
     const [select, setSelect] = useState(null);
+    // const [searchUser, setSearchUser] = useState("");
+    const [users, setUsers] = useState(props.options)
 
     const clickHandler = (name, id) => {
         setSelect(name)
@@ -12,21 +14,22 @@ function Index(props) {
         props.getuserId(id)
     }
 
-    const searchUser = (userlist, value) => {
+    const filterUser = (searchUser) => {
+        props.options?.map((option) => {
+            const username = option[props.type].toLowerCase()
+            const usernameType = searchUser.toLowerCase()
+            // setUsers(usernameType.includes(username))
+            console.log(usernameType.includes(username))
+        })
 
-    }
-
-    const clearInput =()=>{
-        setSelect(null)
     }
 
     return (
         <div className='selectoptionBox'>
             <div className="selectoptionTitle">{props.title}</div>
             <div className="inputSelectbox">
-                <div className="inputTextbox">
-                    <input type="text" value={select ? select : null} name="" id="" className='inputText' onChange={() => searchUser(props.options)} />
-                    <div className="iconClose" style={{ display: (select === null ? "none" : 'flex') }} onClick={() => clearInput()}><IoMdClose /></div>
+                <div className="inputTextbox" onClick={() => setSelect(null)} >
+                    <input type="text" value={select ? select : null} name="" id="" className='inputText' onChange={(e) => filterUser(e.target.value)} />
                 </div>
 
                 <div className="arrowDropbox" onClick={() => setClick(!click)}>
@@ -36,7 +39,7 @@ function Index(props) {
 
             <div className="optionsBox" style={{ display: (click === true ? "flex" : 'none') }}>
                 {
-                    props.options?.map((option, index) => (
+                    users?.map((option, index) => (
                         <div className="option" key={index} value={option.id} onClick={() => clickHandler(option[props.type], option.id)}  >{option[props.type]}</div>
                     ))
                 }
