@@ -14,6 +14,14 @@ function Index(props) {
         props.getuserId(id)
     }
 
+    // const filterUser = props.options?.filter((option) => {
+    //     const username = option[props.type].toLowerCase()
+    //     const usernameType = searchUser.toLowerCase()
+    //     setUsers(usernameType.includes(username))
+    // })
+
+
+
     const filterUser = (searchUser) => {
         props.options?.map((option) => {
             const username = option[props.type].toLowerCase()
