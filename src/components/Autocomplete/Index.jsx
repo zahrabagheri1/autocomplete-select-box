@@ -24,12 +24,16 @@ function Index(props) {
         if (searchUser) {
             setUsers(filterUsers)
             setClick(true)
-            
+
         } else {
             setClick(false)
-            
         }
 
+    }
+
+    const showOptions = () => {
+        setClick(!click)
+        setUsers(props.options)
     }
 
     return (
@@ -40,7 +44,7 @@ function Index(props) {
                     <input type="text" value={select ? select : null} name="" id="" className='inputText' onChange={(e) => filterUser(e.target.value)} />
                 </div>
 
-                <div className="arrowDropbox" onClick={() => setClick(!click)}>
+                <div className="arrowDropbox" onClick={() => showOptions()}>
                     <IoMdArrowDropdown className='arrowDropdown' style={{ transform: (click === true ? "rotate(180deg)" : 'rotate(0)') }} />
                 </div>
             </div>
