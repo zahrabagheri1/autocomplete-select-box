@@ -1,11 +1,13 @@
 import React from 'react'
 import axios from "axios";
 import Autocomplete from "../components/Autocomplete/Index";
+import PostCard from "../components/PostCard/Index";
 import { useEffect, useState } from "react";
 import './mainpage.scss';
 
 function Index() {
     const [data, setData] = useState()
+    const [userId, setUserId] = useState()
 
     const users = [
         { id: 1, username: "Lee Miracle" },
@@ -21,10 +23,10 @@ function Index() {
     ]
 
     useEffect(() => {
-        listoftextuser()
-    }, {})
+        getPostList()
+    }, [])
 
-    const listoftextuser = () => {
+    const getPostList = () => {
         axios.get(`https://jsonplaceholder.typicode.com/posts`)
             .then(
                 res => {
@@ -34,9 +36,24 @@ function Index() {
             )
     }
 
+    const getuserIdHandler = (id) => {
+        setUserId(id)
+    }
+
     return (
         <div className="mainPage">
-            <Autocomplete options={users} data={data} type={'username'} title={'select username:'} />
+            <Autocomplete options={users} data={data} type={'username'} title={'select User:'} getuserId={getuserIdHandler} />
+            <div className="posts">
+                {
+                    data?.map((item, index) => (
+                        item.userId === userId ?
+                            <div className="post">
+                                <PostCard title={item.title} text={item.body} key={index} />
+                            </div>
+                            : ''
+                    ))
+                }
+            </div>
         </div>
 
     )

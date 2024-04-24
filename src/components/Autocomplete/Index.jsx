@@ -1,14 +1,23 @@
 import React, { useState } from 'react'
-import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io";
+import { IoMdArrowDropdown, IoMdArrowDropup, IoMdClose } from "react-icons/io";
 import './Autocomplete.scss';
 
 function Index(props) {
     const [click, setClick] = useState(false);
-    const [select, setSelect] = useState();
+    const [select, setSelect] = useState(null);
 
     const clickHandler = (name, id) => {
         setSelect(name)
         setClick(!click)
+        props.getuserId(id)
+    }
+
+    const searchUser = (userlist, value) => {
+
+    }
+
+    const clearInput =()=>{
+        setSelect(null)
     }
 
     return (
@@ -16,7 +25,8 @@ function Index(props) {
             <div className="selectoptionTitle">{props.title}</div>
             <div className="inputSelectbox">
                 <div className="inputTextbox">
-                    <input type="text" value={select ? select : props.value} name="" id="" className='inputText' />
+                    <input type="text" value={select ? select : null} name="" id="" className='inputText' onChange={() => searchUser(props.options)} />
+                    <div className="iconClose" style={{ display: (select === null ? "none" : 'flex') }} onClick={() => clearInput()}><IoMdClose /></div>
                 </div>
 
                 <div className="arrowDropbox" onClick={() => setClick(!click)}>
