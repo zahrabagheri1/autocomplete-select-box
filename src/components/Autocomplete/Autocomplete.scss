@@ -1,0 +1,86 @@
+.selectoptionBox {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .selectoptionTitle {
+        font-size: 18px;
+        font-weight: bold;
+        text-transform: capitalize;
+    }
+
+    .inputSelectbox {
+        width: 250px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        box-shadow: 1px 1px 10px #621aaf;
+        border: 2px solid #621aaf;
+        border-radius: 5px;
+
+        .inputTextbox {
+            width: 100%;
+            height: 100%;
+
+            .inputText {
+                width: 100%;
+                height: 30px;
+                outline: none;
+                border: none;
+                padding-left: 10px;
+                font-size: 14px;
+                border-radius: 5px 0px 0px 5px;
+
+                &:hover,
+                &:focus,
+                &:link,
+                &:visited,
+                &:active {
+                    color: #000000;
+                    outline: none;
+                    border: none;
+                }
+            }
+        }
+
+        .arrowDropbox {
+            background-color: #ffffff;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 0px 5px 5px 0px;
+
+            .arrowDropdown {
+                font-size: 25px;
+                color: #000000;
+            }
+        }
+
+    }
+
+    .optionsBox {
+        width: 250px;
+        flex-direction: column;
+        position: relative;
+        align-items: start;
+        background-color: #ffffff;
+        border-radius: 10px;
+
+        .option {
+            width: 100%;
+            padding: 10px;
+            cursor: pointer;
+            // user-select: none;
+            position: relative;
+            &:hover{
+                width: 230px;
+                background-color: #621aaf9d;
+            }
+        }
+    }
+
+}
