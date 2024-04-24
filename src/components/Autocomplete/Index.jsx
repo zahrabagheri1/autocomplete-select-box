@@ -5,7 +5,7 @@ import './Autocomplete.scss';
 function Index(props) {
     const [click, setClick] = useState(false);
     const [select, setSelect] = useState(null);
-    // const [searchUser, setSearchUser] = useState("");
+    const [searchUser, setSearchUser] = useState("");
     const [users, setUsers] = useState(props.options)
 
     const clickHandler = (name, id) => {
@@ -14,21 +14,13 @@ function Index(props) {
         props.getuserId(id)
     }
 
-    // const filterUser = props.options?.filter((option) => {
-    //     const username = option[props.type].toLowerCase()
-    //     const usernameType = searchUser.toLowerCase()
-    //     setUsers(usernameType.includes(username))
-    // })
-
-
-
     const filterUser = (searchUser) => {
-        props.options?.map((option) => {
+        const filterUsers = props.options?.filter((option) => {
             const username = option[props.type].toLowerCase()
             const usernameType = searchUser.toLowerCase()
-            // setUsers(usernameType.includes(username))
-            console.log(usernameType.includes(username))
+            return username.includes(usernameType)
         })
+        setUsers(filterUsers)
 
     }
 
@@ -47,7 +39,7 @@ function Index(props) {
 
             <div className="optionsBox" style={{ display: (click === true ? "flex" : 'none') }}>
                 {
-                    users?.map((option, index) => (
+                    users.map((option, index) => (
                         <div className="option" key={index} value={option.id} onClick={() => clickHandler(option[props.type], option.id)}  >{option[props.type]}</div>
                     ))
                 }
