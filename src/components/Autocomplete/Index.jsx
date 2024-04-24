@@ -20,7 +20,15 @@ function Index(props) {
             const usernameType = searchUser.toLowerCase()
             return username.includes(usernameType)
         })
-        setUsers(filterUsers)
+
+        if (searchUser) {
+            setUsers(filterUsers)
+            setClick(true)
+            
+        } else {
+            setClick(false)
+            
+        }
 
     }
 
